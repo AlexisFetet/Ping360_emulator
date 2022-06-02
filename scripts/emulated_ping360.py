@@ -119,7 +119,7 @@ def main():
 if __name__ == '__main__':
     import argparse
 
-    parser = argparse.ArgumentParser(description="Ping python library example.")
+    parser = argparse.ArgumentParser(description="Ping360 sonar emulator")
     parser.add_argument('--device', action="store", required=False, type=str, help="Ping device port. E.g: /dev/ttyUSB0")
     parser.add_argument('--baudrate', action="store", type=int, default=115200, help="Ping device baudrate. E.g: 115200")
     parser.add_argument('--udp', action="store", required=False, type=str, help="Ping UDP server. E.g: 192.168.2.2:9092 (Not yet supported)")
