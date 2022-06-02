@@ -29,6 +29,7 @@ class EmulatedPing360(EmulatedPingDevice):
         self._transmit = 0
 
     def worker(self) -> None:
+        self.logger.info("Now running")
         while 1:
             incoming_message: PingMessage = self.read()
             if incoming_message:
