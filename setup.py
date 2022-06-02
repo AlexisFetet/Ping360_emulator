@@ -18,6 +18,6 @@ setup(name='ping_emulator',
           "License :: OSI Approved :: MIT License",
           "Operating System :: OS Independent",
       ],
-      scripts=[
+      scripts=['ping_emulator/emulated_ping360.py'
                ]
       )

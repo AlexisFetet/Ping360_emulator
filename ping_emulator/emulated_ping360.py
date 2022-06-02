@@ -5,7 +5,7 @@ import os
 import random as rd
 
 from brping import PingMessage, definitions
-from emulated_ping_device import EmulatedPingDevice
+from ping_emulator.emulated_ping_device import EmulatedPingDevice
 
 # socat -d -d pty,raw,echo=0 pty,raw,echo=0
 
