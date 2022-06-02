@@ -4,8 +4,13 @@
 
 [ping-python](https://github.com/bluerobotics/ping-python)
 
-## Installing from source
+## Install
 
+### From pip
+
+`pip install ping-emulator`
+
+### From source
 ```
 git clone --recursive https://github.com/AlexisFetet/Ping360_emulator.git
 cd Ping360_emulator
