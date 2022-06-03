@@ -107,7 +107,12 @@ class EmulatedPing360(EmulatedPingDevice):
 
 
     def get_data(self) -> bytearray:
-        return bytearray([rd.randint(0, 254) for i in range(self._number_of_samples)])
+        data = [0 for _ in range(self._number_of_samples)]
+        scale = 5*abs((self._angle+400) % 400 - 200)
+        for i in range(self._number_of_samples):
+            if rd.randint(self._number_of_samples,2*self._number_of_samples) < 1.1*i + scale:
+                data[i] = rd.randint(220, 255)
+        return bytearray(data)
 
 
 def main():
