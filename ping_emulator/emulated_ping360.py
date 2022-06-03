@@ -107,7 +107,12 @@ class EmulatedPing360(EmulatedPingDevice):
 
 
     def get_data(self) -> bytearray:
-        return bytearray([rd.randint(0, 254) for i in range(self._number_of_samples)])
+        data = [0 for _ in range(self._number_of_samples)]
+        scale = 5*abs((self._angle+400) % 400 - 200)
+        for i in range(self._number_of_samples):
+            if rd.randint(self._number_of_samples,2*self._number_of_samples) < 1.1*i + scale:
+                data[i] = rd.randint(220, 255)
+        return bytearray(data)
 
 
 def main():
@@ -123,7 +128,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Ping360 sonar emulator")
     parser.add_argument('--device', action="store", required=False, type=str, help="Ping device port. E.g: /dev/ttyUSB0")
     parser.add_argument('--baudrate', action="store", type=int, default=115200, help="Ping device baudrate. E.g: 115200")
-    parser.add_argument('--udp', action="store", required=False, type=str, help="Ping UDP server. E.g: 192.168.2.2:9092 (Not yet supported)")
+    parser.add_argument('--udp', action="store", required=False, type=str, help="Ping UDP server. E.g: 192.168.2.2:9092")
     args = parser.parse_args()
     if (args.device is None and args.baudrate is None) and args.udp is None:
         parser.print_help()
