@@ -22,5 +22,5 @@ sudo python3 setup.py install
 Run `socat -d -d pty,raw,echo=0 pty,raw,echo=0` in a terminal. This should give you 2 serial ports, provide one to the emulator, the second is for your application.
 
 ```
-emulated_ping360.py --device your/serial/port --baudrate 115200
+./ping_emulator/emulated_ping360.py --device your/serial/port --baudrate 115200
 ```
